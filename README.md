@@ -34,13 +34,12 @@
 <br />
 <br />
 
-
-
 ---
 
 ### 📕 Latest Blog Posts
 
 <!-- BLOG-POST-LIST:START -->
+
 - [SOLID Principles in software engineering](https://techzette.herokuapp.com/solid-principles-in-software-engineering/)
 - [Hi, let&#39;s get to know each other](https://techzette.herokuapp.com/hi-lets-get-to-know-each-other/)
 <!-- BLOG-POST-LIST:END -->
