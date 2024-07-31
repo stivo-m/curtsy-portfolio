@@ -1,0 +1,51 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Resume {
+  id            String   @id @default(cuid())
+  createdAt     DateTime @default(now()) @map("created_at")
+  updatedAt     DateTime @updatedAt @map("updated_at")
+  deletedAt     DateTime @updatedAt @map("deleted_at")
+  download_link String
+}
+
+model WorkExperience {
+  id          String    @id @default(cuid())
+  createdAt   DateTime  @default(now()) @map("created_at")
+  updatedAt   DateTime  @updatedAt @map("updated_at")
+  deletedAt   DateTime  @updatedAt @map("deleted_at")
+  company     String
+  role        String
+  startDate   DateTime  @map("start_date")
+  endDate     DateTime? @map("end_date")
+  primary     Boolean   @default(false)
+  description String    @db.Text
+  languages   String[]
+}
+
+model Project {
+  id               String    @id @default(cuid())
+  createdAt        DateTime  @default(now()) @map("created_at")
+  updatedAt        DateTime  @updatedAt @map("updated_at")
+  deletedAt        DateTime  @updatedAt @map("deleted_at")
+  company          String
+  promoted         Boolean   @default(false)
+  startDate        DateTime  @map("start_date")
+  endDate          DateTime? @map("end_date")
+  shortDescription String    @map("short_description")
+  longDescription  String    @map("long_description") @db.Text
+  languages        String[]
+  links            String[]
+}
